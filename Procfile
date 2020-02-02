@@ -1,1 +1,1 @@
-web: gunicorn craglist_clone.wsgi --log-file
+web: gunicorn craglist_clone.wsgi --log-file -
