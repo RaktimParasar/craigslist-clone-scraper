@@ -11,7 +11,7 @@ BASE_IMAGE_URL = 'https://images.craigslist.org/{}_300x300.jpg'
 
 
 def index(request):
-    return render(request, 'my_app/base.html')
+    return render(request, 'base.html')
 
 
 def search_result(request):
