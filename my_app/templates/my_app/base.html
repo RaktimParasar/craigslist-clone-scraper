@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<title>Search</title>
+</head>
+<body>
+<header>
+    <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+            <h4 class="text-white">About</h4>
+            <p class="text-muted">Craigslist is an American classified advertisements website with sections devoted to jobs, housing, for sale, items wanted, services, community service, gigs, résumés, and discussion forums. This website is a clone of Craigslist with a better UI.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+            <h4 class="text-white">Contact</h4>
+            <ul class="list-unstyled">
+                <li><a href="https://twitter.com/raktimparasar96" class="text-white">Follow on Twitter</a></li>
+                <li><a href="https://www.facebook.com/raktim.parasar" class="text-white">Follow on Facebook</a></li>
+                <li><a href="https://www.instagram.com/psychedelic___addict/" class="text-white">Follow on Instagram</a></li>
+            </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+        <a href="{% url 'my_app:index' %}" class="navbar-brand d-flex align-items-center">
+            <svg id="i-zoom-reset" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="14" cy="14" r="12" /><path d="M23 23 L30 30" /><path d="M9 12 L9 9 12 9 M16 9 L19 9 19 12 M9 16 L9 19 12 19 M19 16 L19 19 16 19" /></svg>
+            <strong>C W C</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        </div>
+    </div>
+    </header>
+    <main role="main">
+
+    <section class="jumbotron text-center">
+        <div class="container">
+        <h1 class="jumbotron-heading">Craigslist Webscraper Clone</h1>
+        <p class="lead text-muted">What do you want to search for on Craigslist clone ?</p>
+            <div class="row">
+                <div class="col s4">
+                    <div class="center">
+                    <svg id="i-lightning" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="100" height="100" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M18 13 L26 2 8 13 14 19 6 30 24 19 Z" /></svg>
+                    <p>Fast craigslist web scraper</p>
+                        <p class="light center">Scrape away right here with a beautiful GUI.</p>
+                </div>
+            </div>
+            <div class="col s4">
+                    <div class="center">
+                    <svg id="i-zoom-in" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="100" height="100" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="14" cy="14" r="12" /><path d="M23 23 L30 30" /><path d="M14 10 L14 18 M10 14 L18 14" /></svg>
+                    <p>Filter your searches</p>
+                        <p class="light center">We built in functionality to filter based on pricing.</p>
+                </div>
+            </div>
+                <div class="col s4">
+                    <div class="center">
+                        <svg id="i-photo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="100" height="100" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M20 24 L12 16 2 26 2 2 30 2 30 24 M16 20 L22 14 30 22 30 30 2 30 2 24" /><circle cx="10" cy="9" r="3" /></svg>
+                        <p>A much sexier front-end to Craigslist</p>
+                        <p class="light center">We built this with ❤️</p>
+                </div>
+            </div>
+        </div>
+        <form action="{% url 'my_app:search_result' %}" method="POST">
+        {% csrf_token %}
+            <div class="input-group mb-3">
+            <input type="text" class="form-control" name='search' placeholder="Search" />
+            <button type="submit" value='search' name='action' class="btn btn-success">Go</button>
+            </div>
+        </form>
+    </div>
+    </section>
+{% block content %}
+
+{% endblock content %}
+<footer class="text-muted">
+    <div class="container">
+        <p class="float-right">
+        <a href="#">Back to top</a>
+        </p>
+        <p>Made by Raktim Parasar</p>
+        <p> <a href="https://github.com/RaktimParasar"><svg id="i-github" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="32" height="32"><path stroke-width="0" fill="Black" d="M32 0 C14 0 0 14 0 32 0 53 19 62 22 62 24 62 24 61 24 60 L24 55 C17 57 14 53 13 50 13 50 13 49 11 47 10 46 6 44 10 44 13 44 15 48 15 48 18 52 22 51 24 50 24 48 26 46 26 46 18 45 12 42 12 31 12 27 13 24 15 22 15 22 13 18 15 13 15 13 20 13 24 17 27 15 37 15 40 17 44 13 49 13 49 13 51 20 49 22 49 22 51 24 52 27 52 31 52 42 45 45 38 46 39 47 40 49 40 52 L40 60 C40 61 40 62 42 62 45 62 64 53 64 32 64 14 50 0 32 0 Z" /></svg></a> <a href="https://twitter.com/raktimparasar96"><svg id="i-twitter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="32" height="32"><path stroke-width="0" fill="currentColor" d="M60 16 L54 17 L58 12 L51 14 C42 4 28 15 32 24 C16 24 8 12 8 12 C8 12 2 21 12 28 L6 26 C6 32 10 36 17 38 L10 38 C14 46 21 46 21 46 C21 46 15 51 4 51 C37 67 57 37 54 21 Z" /></svg></a></p>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
