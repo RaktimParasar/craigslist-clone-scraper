@@ -69,7 +69,7 @@
                 </div>
             </div>
         </div>
-        <form action="{% url 'search_result' %}" method="POST">
+        <form action="{% url 'my_app:search_result' %}" method="POST">
         {% csrf_token %}
             <div class="input-group mb-3">
             <input type="text" class="form-control" name='search' placeholder="Search" />
